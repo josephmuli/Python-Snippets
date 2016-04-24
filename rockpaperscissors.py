@@ -48,3 +48,29 @@ def result(player, computer):
 	print("3!")
 	time.sleep(0.5)
 	print("Computer threw {0}!".format(names[computer]))
+	global player_score, computer_score
+	if player == computer:
+		print("Tie game.")
+	else:
+		if rules[player] == computer:
+			print("Your victory has been assured Mortal.")
+			player_score += 1
+		else:
+			print("The computer laughs, you have been defeated!")
+			computer_score += 1
+
+	def play_again():
+		answer = raw_input("Would you like to paly again? y/n:")
+		if answer in ("y", "Y", "yes", "Yes", "Of course!":
+			return answer
+		else:
+			print("Thank you for playing the game, you could go on, or are you scared?")
+
+def scores():
+	global player_score, computer_score
+	print("High Scores")
+	print("Player: ", player_score)
+	print("Computer: ", computer_score)
+
+if __name__ == '__main__':
+	start()
