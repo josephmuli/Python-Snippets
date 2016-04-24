@@ -63,7 +63,7 @@ def gui():
 	Radiobutton(rps_frame, text='Paper', variable=player_choice, value=2).grid(column=1, row=3, sticky=W)
 	Radiobutton(rps_frame, text='Scissors', variable=player_choice, value=3).grid(column=1, row=4, sticky=W)
 
-	Label(rps_frame, text='Computer').grid(column=3, row=1, sticky=w)
+	Label(rps_frame, text='Computer').grid(column=3, row=1, sticky=W)
 	Label(rps_frame, textvariable= computer_choice).grid(column=3, row=3, sticky=W)
 
 	Button(rps_frame, text="Play", command=start).grid(column=2, row=2)

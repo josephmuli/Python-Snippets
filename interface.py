@@ -3,8 +3,6 @@
 
 
 from Tkinter import *
-
-
 import rockpaperscissors
 
 
