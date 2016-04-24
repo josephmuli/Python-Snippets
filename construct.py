@@ -15,7 +15,7 @@ count = 0
 
 #Keep asking for an integer until you have the required number
 while count < target_int:
-	new_int = raw_input("Please enter integer {}: ".format(count+1))
+	new_int = raw_input("Please enter integer {0}: ".format(count+1))
 	isint = False
 	try:
 		new_int = int(new_int)
