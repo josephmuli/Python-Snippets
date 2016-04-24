@@ -11,7 +11,7 @@ hello_bool = True
 
 hello_tuple = (21,32)
 
-hello_list = ["Hello", "this", "is", "a", "list"]
+hello_list = [“Hello,”, “this”, “is”, “a”, “list”]
 
 #I have created an empty list and the following lines use the list type function
 #append to add elements to the list
