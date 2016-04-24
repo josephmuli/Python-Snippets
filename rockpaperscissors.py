@@ -1,63 +1,63 @@
 #!usr/bin/env python2
 
-
+from Tkinter import *
+from ttk import *
 import random
-import time
+# import time
 
-rock = 1 
-paper = 2
-scissors = 3
 
-#a few rules...
-names = {rock: "Rock", paper: "Paper", scissors: "Scissors" }
-rules = {rock: scissors, paper: rock, scissors: paper}
+def gui():
+	rock = 1 
+	paper = 2
+	scissors = 3
 
-player_score = 0
-computer_score = 0
+	#a few rules...
+	names = {rock: "Rock", paper: "Paper", scissors: "Scissors" }
+	rules = {rock: scissors, paper: rock, scissors: paper}
 
 #game start:
-def start():
-	print("Let's play a game of Rock, Paper, Scissors ?")
-	while game():
-		pass
-	scores()
-
-def game():
-	player = move()
-	computer = random.randint(1,3)
-	result(player, computer)
-	return play_again()
-
-def move():
-	while True:
-		print
-		player = raw_input("Rock = 1\nPaper = 2\nScissors = 3\nMake a move: ")
-		try:
-			player = int(player)
-			if player in (1,2,3):
-				return player
-		except ValueError:
+	def start():
+		while game():
 			pass
-		print("Oops! I didn't unserstand that. Please enter either 1,2 or 3.")
 
-def result(player, computer):
-	print("1...")
-	time.sleep(1)
-	print("2...")
-	time.sleep(1)
-	print("3!")
-	time.sleep(0.5)
-	print("Computer threw {0}!".format(names[computer]))
-	global player_score, computer_score
-	if player == computer:
-		print("Tie game.")
-	else:
-		if rules[player] == computer:
-			print("Your victory has been assured Mortal.")
-			player_score += 1
+	def game():
+		player = player_choice.get()
+		computer = random.randint(1,3)
+		computer_choice.set(names[computer])
+		result(player, computer)
+
+
+	def result(player, computer):
+		new_score = 0
+		if player == computer:
+			result_set.set("Tie game.")
 		else:
-			print("The computer laughs, you have been defeated!")
-			computer_score += 1
+			if rules[player] == computer:
+				result_set.set("Your victory has been assured Mortal!")
+				new_score = player_score.get()
+				new_score += 1
+				player_score.set(new_score)
+			else:
+				result_set.set("The computer laughs, you have been defeated!")
+				new_score += 1
+				computer_score.set(new_score)
+
+	rps_window = Toplevel()
+	rps_window.title("Rock, Paper, Scissors")
+
+	player_choice = IntVar()
+	computer_choice = StringVar()
+	result_set = StringVar()
+	player_choice.set(1)
+	player_score = IntVar()
+	computer_score = IntVar()
+
+
+	rps_frame = Frame(rps_window, padding = '3 3 12 12', width = 300)
+
+
+
+
 
 	def play_again():
 		answer = raw_input("Would you like to paly again? y/n:")
@@ -66,11 +66,7 @@ def result(player, computer):
 		else:
 			print("Thank you for playing the game, you could go on, or are you scared?")
 
-def scores():
-	global player_score, computer_score
-	print("High Scores")
-	print("Player: ", player_score)
-	print("Computer: ", computer_score)
+
 
 if __name__ == '__main__':
 	start()
