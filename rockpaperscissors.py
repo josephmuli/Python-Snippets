@@ -61,7 +61,7 @@ def result(player, computer):
 
 	def play_again():
 		answer = raw_input("Would you like to paly again? y/n:")
-		if answer in ("y", "Y", "yes", "Yes", "Of course!":
+		if answer in ("y", "Y", "yes", "Yes", "Of course!"):
 			return answer
 		else:
 			print("Thank you for playing the game, you could go on, or are you scared?")
